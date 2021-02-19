@@ -1,5 +1,5 @@
 ================================================================================
-	minecraftserver.py     |   version 1.8	 |   zlib license	|   2021-02-18
+	minecraftserver.py     |   version 1.4	 |   zlib license	|   2021-02-18
 	James Hendrie          |   hendrie dot james at gmail dot com
 ================================================================================
 
