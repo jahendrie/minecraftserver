@@ -36,20 +36,20 @@ server.
 Options:
 
 ```
--h or --help			Print help text
+-h or --help				Print help text
 -n or --nogui		    Disable server GUI (use terminal) (default)
 -g or --gui			    Enable server GUI (java GUI interface)
--p or --port			Specify server port (default 25565)
--l or --list			List worlds you can run on the server
+-p or --port				Specify server port (default 25565)
+-l or --list				List worlds you can run on the server
 -b or --backup		    Make a backup of the given world (default 'main')
 -a or --autobackup	    Enable autobackup on server exit
--A or --nobackup	    Disable autobackup on server exit
+-A or --nobackup	    		Disable autobackup on server exit
 -u or --update		    Update the server.jar file of the given world
--U or --noupdate        Disable autoupdate, if it's enabled
+-U or --noupdate        	Disable autoupdate, if it's enabled
 -P or --purge		    Purge all but the last three backups for given world
 -c or --config		    List current settings
--C or --edit			Edit the launcher settings config file
--s or --settings		Edit server properties file for a given world
+-C or --edit				Edit the launcher settings config file
+-s or --settings			Edit server properties file for a given world
 ```
 
 
