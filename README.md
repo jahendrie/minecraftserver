@@ -1,6 +1,6 @@
 # Minecraftserver.py
 
-**version 1.4**, 2021-02-19
+**version 1.41**, 2021-02-21
 
 ## Contents
 
@@ -37,6 +37,7 @@ Options:
 
 ```
 -h or --help        Print help text
+-V or --version		Print version and author info
 -n or --nogui       Disable server GUI (use terminal) (default)
 -g or --gui         Enable server GUI (java GUI interface)
 -p or --port        Specify server port (default 25565)

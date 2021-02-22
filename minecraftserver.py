@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #===============================================================================
-#   minecraftserver.py  |   version 1.4     |   zlib license    |   2021-02-18
+#   minecraftserver.py  |   version 1.41    |   zlib license    |   2021-02-21
 #   James Hendrie       |   hendrie.james@gmail.com
 #
 #   Script I use to make running my minecraft servers easier.
@@ -12,11 +12,14 @@ import time
 import requests
 import configparser
 
+MCS_VERSION = "1.41"
+
 
 def print_help():
     print( "Usage:  minecraftserver.py [arg] [world]\n" )
     print( "Arguments:" )
     print( "  -h or --help\t\tPrint this help text" )
+    print( "  -V or --version\tPrint Version and author info" )
     print( "  -n or --nogui\t\tDisable server GUI (use terminal) (default)" )
     print( "  -g or --gui\t\tEnable server GUI (java GUI interface)" )
     print( "  -p or --port\t\tSpecify server port (default 25565)" )
@@ -35,6 +38,11 @@ def print_help():
     print( "\tRuns the 'main' world without a GUI" )
     print( "  minecraftserver.py -n pierce" )
     print( "\tRuns Pierce's world without a GUI" )
+
+
+def print_version():
+    print( "minecraftserver.py, version %s" % MCS_VERSION )
+    print( "James Hendrie (hendrie.james@gmail.com)" )
 
 
 def check_requirements():
@@ -146,6 +154,15 @@ def internal_backup( bkpPath, world, opts ):
 
 
 def backup_world( world, opts ):
+
+    ##  First, make sure bkp_dir exists
+    if not os.path.exists( bkp_dir( world )):
+        try:
+            os.mkdir( bkp_dir( world ))
+        except PermissionError:
+            print( "ERROR:  Cannot create directory '%s'" % bkp_dir( world ))
+            print( "Aborting." )
+            sys.exit( 1 )
 
     bkpName = "%s_" % world
     bkpName += time.strftime( "%Y-%m-%d_%H-%M-%S", time.localtime() )
@@ -511,6 +528,10 @@ def main():
     for arg in sys.argv[1:]:
         if arg == "-h" or arg == "--help":
             print_help()
+            return( 0 )
+
+        if arg == "-V" or arg == "--version":
+            print_version()
             return( 0 )
 
         elif arg == "-n" or arg == "--nogui":

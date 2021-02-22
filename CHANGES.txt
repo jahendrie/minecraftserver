@@ -1,0 +1,4 @@
+2021-02-18      1.4     Initial public release
+
+2021-02-21      1.41    Fixed a bug where the backup dir wasn't created
+                        (whoops), added a version option
